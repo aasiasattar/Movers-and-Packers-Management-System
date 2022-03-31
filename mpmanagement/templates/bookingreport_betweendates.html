@@ -1,0 +1,49 @@
+{% extends 'admin_navigation.html' %}
+{% block content %}
+
+
+<h4 class="p-2 font-weight-bold " style="border-bottom: 2px solid orange; color: maroon;"> Between Dates Reports</h4>
+
+
+    
+        <div class="card shadow mt-4" style="border-top: 2px solid orange;">
+            <div class="card-body">
+
+                <div class="container-fluid">
+                     <!--Form start from here-->
+
+  <form class="container mt-2" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>From Date</b></label>
+                <input type="date" class="form-control" name="fromdate" required>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label>To Date</label>
+                <input type="date" class="form-control" name="todate" required>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" style="margin-top : 2% ; color : yellow ; background-color : black ; font-weight : bold ">
+
+</form>
+
+                </div>
+            </div>
+
+        </div>
+
+{% endblock %}

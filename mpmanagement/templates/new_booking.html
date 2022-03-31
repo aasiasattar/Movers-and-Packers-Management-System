@@ -1,0 +1,51 @@
+{% extends 'admin_navigation.html' %}
+
+{% block content %}
+ 
+        
+ 
+<div class="card shadow" style="border-top: 2px solid orangered;">
+            <h4 class="p-2 font-weight-bold " style="border-bottom: 2px solid orangered; color: maroon;"> New Booking </h4>
+            <div class="card-body">
+
+                <div class="container-fluid">
+                     <!--Table start Table here-->
+                     <table class="table table-bordered table-hover" id="example">
+                         <thead style="background-color: maroon; color: white;">
+                             <tr>
+                                 <th>S_No</th>
+                                 <th>Name</th>
+                                 <th>Email</th>
+                                 <th>Contact Number</th>
+                                 <th>Action</th>
+                                
+                                 
+                             </tr>
+                         </thead>
+
+                         <tbody>
+                             {% for i in booking %}
+                             <tr>
+                                 <td>{{forloop.counter}}</td>
+                                 <td>{{i.name}}</td>
+                                 <td>{{i.email}}</td>
+                                 <td>{{i.mobile}}</td>
+                                 <td><a href="{% url 'view_bookingdetail' i.id %}" style="width: 80px; color: mediumpurple;">View Details</a>
+                                 </td>
+                                
+                                
+                             </tr>
+                             {% endfor %}
+                         </tbody>
+                     </table>
+
+  
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'admin_navigation.html' %}
+{% block content %}
+
+
+<h4 class="p-2 font-weight-bold " style="border-bottom: 2px solid orange; color: maroon;"> Edit Service Detail</h4>
+
+
+    
+        <div class="card shadow mt-4" style="border-top: 2px solid orange;">
+            <div class="card-body">
+
+                <div class="container-fluid">
+                     <!--Form start from here-->
+
+  <form class="container mt-2" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Service Title</b></label>
+                <input type="text" class="form-control" name="servicetitle" value="{{service.title }}">
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label>Description</label>
+                <textarea class="form-control" name="description" placeholder="Enter Description">{{ service.description }}</textarea>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="form-group">
+            
+                <label>Image</label>
+                <input type="file" class="form-control" name="image">
+
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+            
+                
+                <img src="{{ service.image.url }}" height="100" width="100">
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" style="margin-top : 2% ; color : yellow ; background-color : black ; font-weight : bold ">
+
+</form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        {% if error == "no" %}
+        <script>
+           alert("Service detail has been updated successfully");
+           window.location = ( '{% url 'edit_service' service.id %}' )
+        </script>
+        {% endif %}
+        
+        
+        {% if error == "yes" %}
+        <script>
+           alert("Something went wrong! Please Try Again...");
+        </script>
+        {% endif %}
+        
+        <!--End java script code-->
+
+{% endblock %}

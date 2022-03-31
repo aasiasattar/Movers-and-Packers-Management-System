@@ -1,0 +1,70 @@
+{% extends 'admin_navigation.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total Services</h4>
+                <h5>{{totalservices}}</h5>
+            </div>
+            <div class="card-footer" style="background-color: thistle;">
+                <a href="{% url 'manage_services' %}">View Detail >></a>
+            </div>
+         </div>
+    </div>
+
+
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total Unread Messages</h4>
+                <h5>{{totalnewmsgs}}</h5>
+            </div>
+            <div class="card-footer" style="background-color: thistle;">
+                <a href="{% url 'new_messages' %}">View Detail >></a>
+            </div>
+         </div>
+    </div>
+
+
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total Read Messages</h4>
+                <h5>{{totaloldmsgs}}</h5>
+            </div>
+            <div class="card-footer" style="background-color: thistle;">
+                <a href="{% url 'old_messages' %}">View Detail >></a>
+            </div>
+         </div>
+    </div>
+
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total New Bookings</h4>
+                <h5>{{totalnewbookings}}</h5>
+            </div>
+            <div class="card-footer" style="background-color: thistle;">
+                <a href="{% url 'new_booking' %}">View Detail >></a>
+            </div>
+         </div>
+    </div>
+
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total Old Bookings</h4>
+                <h5>{{totaloldbookings}}</h5>
+            </div>
+            <div class="card-footer" style="background-color: thistle;">
+                <a href="{% url 'old_booking' %}">View Detail >></a>
+            </div>
+         </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

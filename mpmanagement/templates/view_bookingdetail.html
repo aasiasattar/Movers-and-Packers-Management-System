@@ -1,0 +1,115 @@
+{% extends 'admin_navigation.html' %}
+
+{% block content %}
+ 
+        
+ 
+<div class="card shadow" style="border-top: 2px solid orangered;">
+            <h4 class="p-2 font-weight-bold " style="border-bottom: 2px solid orangered; color: maroon;"> View Booking Detail </h4>
+            <div class="card-body">
+
+                <div class="container-fluid">
+                     <!--Table start Table here-->
+                     <table class="table table-bordered table-hover" id="example">
+                         <tr align="center">
+                            <td colspan="4" style="font-size: 20px; color: beige; background-color: maroon ;"> Booking Detail</td>
+                         </tr>
+                         
+                         <tr style="background-color: bisque;">
+                             <th style="color: maroon;">Name</th>
+                             <td>{{booking.name}}</td>
+                             <th style="color: maroon;">Contact Number</th>
+                             <td>{{booking.mobile}}</td>
+                        </tr>
+
+                        <tr style="background-color: bisque;">
+                            <th style="color: maroon;">Email ID</th>
+                            <td>{{booking.email}}</td>
+                            <th style="color: maroon;">Location Shift From</th>
+                            <td>{{booking.location}}</td>
+                       </tr>
+
+
+                       <tr style="background-color: bisque;">
+
+                            <th style="color: maroon;">Location Shift To</th>
+                            <td>{{booking.shifting_loc}}</td>
+                            <th style="color: maroon;"> Shifting Date  </th>
+                            <td>{{booking.shiftingdate}}</td>
+                       
+                        </tr>
+
+
+                        <tr style="background-color: bisque;">
+
+                            <th colspan="1" style="color: maroon;">Brief of Items</th>
+                            <td colspan="3">{{booking.brief_items}}</td>
+                            
+                        </tr>
+
+                        <tr style="background-color: bisque;">
+
+                            <th colspan="1" style="color: maroon;"> All Items to be shifted  </th>
+                            <td colspan="3">{{booking.items}}</td>
+
+                        </tr>
+
+
+                        <tr style="background-color: bisque;">
+
+                            <th style="color: maroon;">Request Date</th>
+                            <td colspan="3">{{booking.requestdate}}</td>
+                            
+                        </tr>
+
+                        {% if not booking.remark %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <tr>
+                                <th>Admin Remark</th>
+                                <td colspan="3"><textarea name="remark" class="form-control" required></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <th>&nbsp</th>
+                                <td colspan="3"><button type="submit" class="btn btn-primary"><i class="fa fa-arrow-circle-right"> </i> Update</button></td>
+                            </tr>
+                        </form>
+                        {% else %}
+                        <tr>
+                            <th>Admin Remark</th>
+                            <td>{{booking.remark}}</td>
+                            <th>Last Updation Date</th>
+                            <td>{{booking.updationdate}}</td>
+                        </tr>
+                        {% endif %}
+                     
+                    </table>
+
+  
+
+                </div>
+            </div>
+
+        </div>
+
+
+        {% if error == "no" %}
+        <script>
+           alert("Remark has been updated successfully!");
+           window.location = ( '{% url 'view_bookingdetail' booking.id %}' )
+        </script>
+        {% endif %}
+        
+        
+        {% if error == "yes" %}
+        <script>
+           alert("Something went wrong! Please Try Again...");
+        </script>
+        {% endif %}
+        
+        <!--End java script code-->
+
+
+
+{% endblock %}

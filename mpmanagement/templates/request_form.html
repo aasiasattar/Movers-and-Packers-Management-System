@@ -1,0 +1,143 @@
+{% load static %}
+{% include 'header.html' %}
+
+<header class="container-fluid" style="border: 1px solid orange;">
+     <img src="{% static 'images/new2.jpg' %}" width="100%" height="700px" class="image-responsive">
+
+</header>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Request Quote</li>
+    </ol>
+
+</nav>
+
+
+
+
+    
+        <div class="card shadow  container mb-5 mt-4" style="border-top: 2px solid orange;">
+            <h4 class="p-2 font-weight-bold text-center " style="border-bottom: 2px solid orange; color: maroon;"> Request Form Detail</h4>
+            <div class="card-body">
+
+                <div class="container-fluid">
+                     <!--Form start from here-->
+
+  <form class="container mt-2" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Name</b></label>
+                <input type="text" class="form-control" name="name" placeholder="Enter Full Name" required>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Email ID</b></label>
+                <input type="email" class="form-control" name="email" placeholder="Email ID">
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Contact Number</b></label>
+                <input type="text" class="form-control" name="contact" placeholder="Contact Number">
+
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Where do you want the packers and movers service</b></label>
+                <input type="text" class="form-control" name="location" placeholder="Starting Location">
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Where are you shifting</b></label>
+                <input type="text" class="form-control" name="shiftinglocation" placeholder="Destination Location">
+
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>What do you want to shift</b></label>
+                <select name="briefitems" class="form-control">
+                    <option value="">Select</option>
+                    <option value="Very Few Items">Very Few Items</option>
+                    <option value="1 BHK">1 BHK</option>
+                    <option value="2 BHK">2 BHK</option>
+                    <option value="3 BHK">3 BHK</option>
+                </select>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Please mention all items that you are willing to shift</b></label>
+                <textarea name="items" class="form-control"></textarea>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+            
+                <label><b>Date of Shifting</b></label>
+                <input type="date" name="shiftingdate" class="form-control">
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" style="margin-top : 2% ; color : yellow ; background-color : black ; font-weight : bold ">
+
+</form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        {% if error == "no" %}
+        <script>
+           alert("Request quote has been sent...We will contact you soon!");
+           window.location = ( '{% url 'request_form' %}' )
+        </script>
+        {% endif %}
+        
+        
+        {% if error == "yes" %}
+        <script>
+           alert("Something went wrong! Please Try Again...");
+        </script>
+        {% endif %}
+        
+        <!--End java script code-->
+
+

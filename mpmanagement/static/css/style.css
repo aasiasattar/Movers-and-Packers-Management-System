@@ -1,0 +1,74 @@
+.nav-link{
+    color: white !important;
+        
+    }
+    
+    .nav-link:hover{
+        background-color: maroon;
+        color: yellow !important;
+        border-radius: 15px;
+        font-weight: bold;
+    }
+    
+    .navbar-brand:hover{
+        font-weight: bold;
+        background-color: maroon;
+        color: yellow !important;
+        border-radius: 15px;
+    }
+    .nav-item .active{
+        background-color: blue;
+    }
+    .page-title{
+        color: maroon;
+        font-size: 2em;
+        padding: .5em 1em;
+        box-shadow: 0px 0px 2px #b0b0b0;
+        width: 30%;
+        margin: 0 auto;
+        text-transform: uppercase;
+        
+    
+    }
+        /* about page css start */
+        
+        .section-subtitle{
+            margin-bottom: 8px;
+            padding-left: 7px;
+            text-transform: uppercase;
+            color: #aaa;
+            font-size: 70px;
+            font-family: tohoma;
+            border-left: 3px solid;
+            line-height: 1;
+
+        }
+        .section-main-title{
+            margin-bottom: 35px;
+            font-size: 30px;
+
+        }
+        
+        .about-box{
+        box-shadow: 0 0 0 10px #000000 inset;
+        margin-right: 0;
+        margin-top: 0;
+        position: relative;
+        display: block;
+
+
+        }
+
+            
+        .about-box img{
+            width: 100%;
+            transform: translateY(30px) translateX(-30px);
+        }
+
+        body{
+            background-size: 100%;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+        }
+        
+        

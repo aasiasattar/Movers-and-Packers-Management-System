@@ -1,0 +1,209 @@
+{% load static %}
+<html>
+<head>
+<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+       
+    
+    
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+        <!-- Font Awesome CDN-->
+      
+       
+          <!--CSS Style Sheet-->
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" type="text/css">
+        
+        <!--Js file-->
+         <script src="{% static 'js/sidebar.js' %}"></script>
+
+         <script>
+            $(document).ready(function() {
+                $('#example').DataTable( {
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5'
+                    ]
+                } );
+            } );
+           
+            </script>
+                                        <!-- java script cdn place in script tag with src-->
+            <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src = "https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+            <script src = "//cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+            <script src = "//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+            <script src = "//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+            <script src = "//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+            <script src = "//cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+        
+                                         <!--Css files place in <link rel = "stylesheet" href ="">-->
+            <link rel = "stylesheet" href = "//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+            <link rel = "stylesheet" href = "//cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+        
+            <!-- End DataTables-->
+
+
+         
+
+   <title>
+       Packing and Moving System
+   </title>  
+   
+   
+   
+    
+</head>
+
+
+<body>
+    <!--vertical navbar start-->
+
+    <div class="bg-white vertical-nav" id="sidebar">
+        <div class="py-5 px-3 bg-light mb-2">
+            <p class="font-weight-bold text-uppercase px-3 sidebar-title" style="font-weight: bold;">Packing & Moving</p>
+
+            <div class="media d-flex align-item-center">
+                <img src="{% static 'images/img1.png' %}" width="100px" height="80px" class="rounded-circle img-thumbnail shadow-sm">
+
+                <div class="media-body mx-2">
+                    <h4 class=" mb-0 mt-4">Admin</h4>
+                    <p class="text-muted mb-0">{{request.user.email}}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <ul class="nav flex-column bg-white">
+           <li class="nav-item">
+               <a href="{% url 'admin_home'%}" class="nav-link text-dark bg-light">
+                   <i class="fa fa-home fa-fw text primary" style="margin-right: 3px;"></i>Dashboard
+               </a>
+           </li> 
+
+           <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-chart-bar fa-fw text primary" style="margin-right: 3px;"></i>Services
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'add_services' %}">Add Services</a>
+                <a class="dropdown-item" href="{% url 'manage_services' %}">Manage Services</a>
+
+            </div>
+        </li> 
+
+
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-chart-bar fa-fw text primary" style="margin-right: 3px;"></i>Booking
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'new_booking' %}">New Booking</a>
+                <a class="dropdown-item" href="{% url 'old_booking' %}">Old Booking</a>
+
+            </div>
+        </li> 
+
+
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-envelope fa-fw text primary" style="margin-right: 3px;" ></i>Messages
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'new_messages' %}">New Messages</a>
+                <a class="dropdown-item" href="{% url 'old_messages' %}">Old Messages</a>
+
+            </div>
+        </li> 
+
+        <li class="nav-item">
+            <a href="{% url 'search'%}" class="nav-link text-dark bg-light">
+                <i class="fas fa-search fa-fw text primary" style="margin-right: 3px;"></i>Search
+            </a>
+        </li> 
+
+
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark bg-light" id="navbardrop" data-toggle="dropdown">
+                <i class="fas fa-file fa-fw text primary" style="margin-right: 3px;" ></i>Reports
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'bookingreport_betweendates' %}">Booking b/w Dates</a>
+                <a class="dropdown-item" href="{% url 'msgsform_betweendates' %}">Messages b/w Dates</a>
+            </div>
+
+        </li> 
+
+        <li class="nav-item">
+            <a href="{% url 'change_password'%}" class="nav-link text-dark bg-light">
+                <i class="fa fa-key fa-fw text primary" style="margin-right: 3px;"></i>Change Password
+            </a>
+        </li> 
+
+        <li class="nav-item">
+            <a href="{% url 'logout'%}" class="nav-link text-dark bg-light">
+                <i class="fa fa-sign-out-alt fa-fw text primary" style="margin-right: 3px;"></i>Logout
+            </a>
+        </li> 
+
+
+
+        </ul>
+
+
+
+    </div>
+
+
+     <!--vertical navbar end-->
+
+
+     <!--content placeholder start-->
+     <div class="page-content p-4" id="content">
+         <a href="{% url 'logout' %}" title="logout" class="text-white float-right"><i class="fa fa-sign-out-alt"></i></a>
+
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
+            <i class="fas fa-bars" style="margin-right: 4;"></i><small class="text-uppercase" style="font-weight: bold;">
+                Toggle</small></button>
+
+                {% block content %}
+
+
+                {% endblock %}
+
+     </div>
+
+
+
+     <!--content placeholder end-->
+
+     
+
+    
+
+
+
+
+
+
+
+
+    
+
+    
+     
+</body>
+
+</html>

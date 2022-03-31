@@ -1,0 +1,82 @@
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <title>
+            Admin Login 
+        </title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.j   sdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Font Awesome CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--CSS Style Sheet-->
+<link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+    </head>
+
+<body style="background-image: url({% static 'images/bgpack3.jpg' %});"> 
+    <div class="row">
+        <div class="col-sm-5 m-auto">
+            <div class="card mt-5 bg-dark" style="opacity: 0.9;">
+                <div class="card-title text-center">
+                    <img src="{% static 'images/adlogin.jpg' %}" width="150" height="150" style="border-radius: 15px ; margin-top: 20px;">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="input-group">
+                              <div class="input-group-prepend mt-4">
+                                <span class="input-group-text">
+                                <i class="fa fa-user fa-2x "></i>
+                                </span>
+                              </div>
+                              <input type="text" name="username" class="form-control py-4 mt-4" placeholder="Enter Username">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend mt-4">
+                                  <span class="input-group-text">
+                                  <i class="fa fa-lock fa-2x "></i>
+                                  </span>
+                                </div>
+                                <input type="password" name="pwd" class="form-control py-4 mt-4" placeholder="Enter Password">
+                                
+                            </div>
+
+                           
+                            <input type="submit" value="Login" class="btn btn-success px-5 mt-4 float-left mb-3" style="background-color:grey; border:3px solid gray;">
+                            <a href="{% url 'index' %}"><input type="button" value="Go Back To Home" class="btn btn-success  mt-4 float-right mb-3" style="background-color:grey; border-color: gray;"></a>
+                        </form>
+
+                    </div>
+                </div>
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+{% if error == "no" %}
+<script>
+    alert('Logged in Successfully');
+    window.location = ('{% url 'admin_home' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login ! Try Again');
+</script>
+
+{% endif %}
+
+{% endblock %}
